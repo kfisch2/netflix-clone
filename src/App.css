@@ -1,0 +1,39 @@
+:root {
+  --primary: black;
+  --secondary: white;
+  --tertiary: rgb(152, 17, 17);
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--tertiary);
+  
+}
+
+.movieSection {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 35%;
+}
+
+.synopsis {
+  color: var(--secondary);
+  display: flex;
+  margin-left: 109px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.glow {
+  font-size: 80px;
+  color: rgb(152, 17, 17);
+  text-align: center;
+}
+
+.genreTitle {
+  text-align: center;
+}
+
