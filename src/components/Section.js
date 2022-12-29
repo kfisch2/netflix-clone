@@ -3,17 +3,20 @@ import Card from "./Card.js";
 
 const Section = ({ genre }) => {
   const [movies, setMovies] = useState(null);
+  const [pageState, setPageState] = useState(null);
 
   const fetchData = async () => {
     const response = await fetch(
-      "http://localhost:8888/.netlify/functions/getMoviesByGenre", {
-        method: 'POST',
-        body: JSON.stringify( { genre: genre, })
+      "http://localhost:8888/.netlify/functions/getMoviesByGenre",
+      {
+        method: "POST",
+        body: JSON.stringify({ genre: genre, pageState: pageState }),
       }
     );
     const responseBody = await response.json();
-    console.log(responseBody.data.movies_by_genre.values)
+    console.log(responseBody.data.movies_by_genre.values);
     setMovies(responseBody.data.movies_by_genre.values);
+    setPageState(responseBody.data.movies_by_genre.pageState);
   };
 
   useEffect(() => {
@@ -28,6 +31,13 @@ const Section = ({ genre }) => {
           {movies.map((movie, i) => (
             <Card key={i} movie={movie} />
           ))}
+          <div
+            className="more-button"
+            onClick={() => {
+              setPageState(pageState)
+              fetchData()
+            }}
+          ></div>
         </div>
       )}
     </>
