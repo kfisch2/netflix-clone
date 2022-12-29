@@ -10,14 +10,11 @@ body {
   
 }
 
-.movieSection {
+.movie-section {
   display: flex;
   justify-content: center;
 }
 
-img {
-  width: 35%;
-}
 
 .synopsis {
   color: var(--secondary);

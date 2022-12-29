@@ -1,11 +1,13 @@
 import fetch from "node-fetch";
 
-exports.handler = async function () {
+exports.handler = async function (e) {
+  const body = JSON.parse(e.body)
+  const genre = body.genre;
   const url = process.env.ASTRA_ENDPOINT;
   const query = `
   query getMoviesByGenre {
     movies_by_genre(value: 
-      { genre: "Sci-Fi" }, 
+      { genre: ${JSON.stringify(genre)} }, 
       orderBy: [year_DESC]
     ) {
       values {
