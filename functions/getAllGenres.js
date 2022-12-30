@@ -1,11 +1,11 @@
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 
 exports.handler = async function () {
-  
   const url = process.env.ASTRA_ENDPOINT;
   const query = `
   query getAllGenres {
-    reference_list(value: { title: "genre" }) {
+    reference_list(value: { title: "genre" },
+    options: { limit: 4 }) {
       values {
         value
       }
