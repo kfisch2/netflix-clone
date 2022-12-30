@@ -14,7 +14,6 @@ const Section = ({ genre }) => {
       }
     );
     const responseBody = await response.json();
-    console.log(responseBody.data.movies_by_genre.values);
     setMovies(responseBody.data.movies_by_genre.values);
     setPageState(responseBody.data.movies_by_genre.pageState);
   };

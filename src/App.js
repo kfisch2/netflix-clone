@@ -22,14 +22,17 @@ const App = () => {
   useEffect(() => {
     fetchData();
     // empty array to ensure the GET request is performed only once
-  }, []);
+    // [, limit] -> fetch the data every time the limit changes
+  }, [, limit]);
 
   return (
     <>
       <h1 className="glow">NETFLIX CLONE</h1>
       {genres &&
-        Object.values(genres).map((genre) => <Section genre={genre.value} />)}
-        <div></div>
+        Object.values(genres).map((genre, i) => <Section genre={genre.value} key={i}/>)}
+        <div className="page-end" onMouseEnter={() => {
+          setLimit(limit + genreIncrement)
+        }}></div>
     </>
   );
 };

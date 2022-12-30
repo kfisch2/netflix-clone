@@ -1,18 +1,20 @@
 import fetch from "node-fetch";
 
-exports.handler = async function () {
+exports.handler = async function (e) {
+  const limit = JSON.parse(e.body)
+  console.log(JSON.parse(e.body))
+
   const url = process.env.ASTRA_ENDPOINT;
   const query = `
-  query getAllGenres {
-    reference_list(value: { title: "genre" },
-    options: { limit: 4 }) {
-      values {
-        value
+    query getAllGenres {
+      reference_list(value: { title: "genre" },
+      options: { limit: ${JSON.stringify(limit)} }) {
+        values {
+          value
+        }
       }
-    }
-  }
-    `;
-
+    }`;
+  console.log(limit);
   const response = await fetch(url, {
     method: "POST",
     headers: {
