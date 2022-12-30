@@ -1,63 +1,80 @@
 :root {
-  --primary: black;
-  --secondary: white;
+  --primary: #141414;
+  --secondary: #fff;
   --tertiary: rgb(152, 17, 17);
 }
 
 body {
   background-color: var(--primary);
   color: var(--tertiary);
-  
+  font-family: "Helvetica Neue", sans-serif;
 }
 
-.movie-section {
-  display: flex;
-  justify-content: space-evenly;
+.container {
+  margin: 0 50px;
 }
 
-.card-section {
-  width: 200px;
-  color: var(--secondary);
-}
-
-.more-button {
-width: 100px;
-height: 100px;
-background-color: gray;
-}
-
-h3, h5 {
-  font-weight: lighter;
+.card {
+  width: 230px;
+  border-radius: 5px;
+  margin: 2px;
+  transition: transform 500ms;
+  position: relative;
+  display: block;
 }
 
 img {
   width: 100%;
-  height: 100%;
+  border-radius: 5px;
 }
 
+.movie-section {
+  display: flex;
+}
 
-.synopsis {
+.movie-section:focus-within .card,
+.movie-section:focus,
+.card {
+  transform: translate(-25%);
+  z-index: 1;
+}
+
+.card:focus ~ .card,
+.card:hover ~ .card {
+  transform: translateX(25%);
+}
+
+.movie-section .card:focus, .movie-section .card:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+.more-button {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+}
+
+.movie-section .card:focus,
+.movie-section .card:focus {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+/* .synopsis {
   color: var(--secondary);
   display: flex;
   margin-left: 109px;
   align-items: center;
   flex-wrap: wrap;
-}
+} */
 
-.glow {
-  font-size: 80px;
-  color: rgb(152, 17, 17);
+/* .genreTitle {
   text-align: center;
-}
+} */
 
-.genreTitle {
-  text-align: center;
-}
-
-.page-end{
+.page-end {
   width: 100%;
   height: 100px;
   background-color: lightblue;
-
 }
-

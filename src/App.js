@@ -2,6 +2,8 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Section from "./components/Section.js";
 import Movies from "./components/Movies.js";
+import Nav from "./components/Nav.js";
+import Hero from "./components/Hero.js";
 
 const App = () => {
   const genreIncrement = 4;
@@ -10,9 +12,10 @@ const App = () => {
 
   const fetchData = async () => {
     const response = await fetch(
-      "http://localhost:8888/.netlify/functions/getAllGenres", {
-        method: 'POST', 
-        body: limit
+      "http://localhost:8888/.netlify/functions/getAllGenres",
+      {
+        method: "POST",
+        body: limit,
       }
     );
     const responseBody = await response.json();
@@ -27,12 +30,22 @@ const App = () => {
 
   return (
     <>
-      <h1 className="glow">NETFLIX CLONE</h1>
-      {genres &&
-        Object.values(genres).map((genre, i) => <Section genre={genre.value} key={i}/>)}
-        <div className="page-end" onMouseEnter={() => {
-          setLimit(limit + genreIncrement)
-        }}></div>
+      <Nav />
+      <Hero />
+      {genres && (
+        <div className="container">
+          {Object.values(genres).map((genre, i) => (
+            <Section genre={genre.value} key={i} />
+          ))}
+        </div>
+      )}
+
+      <div
+        className="page-end"
+        onMouseEnter={() => {
+          setLimit(limit + genreIncrement);
+        }}
+      ></div>
     </>
   );
 };
