@@ -6,7 +6,7 @@ const Card = ({ movie }) => {
         <h3>{movie.title}</h3>
         <h5>({movie.duration} minutes)</h5>
         <div className="image">
-          <img src={movie.thumbnail}/>
+          <video src={movie.thumbnail} type="video/mp4" autoPlay />
         </div>
       </div>
     </>

@@ -19,7 +19,8 @@ const App = () => {
       }
     );
     const responseBody = await response.json();
-    setGenres(responseBody.data.reference_list.values);
+    console.log(responseBody)
+    // setGenres(responseBody.data.genres.values);
   };
 
   useEffect(() => {
@@ -30,16 +31,17 @@ const App = () => {
 
   return (
     <>
-      <Nav />
-      <Hero />
-      {genres && (
-        <div className="container">
-          {Object.values(genres).map((genre, i) => (
-            <Section genre={genre.value} key={i} />
-          ))}
-        </div>
-      )}
-
+      <div className="main-page">
+        <Nav />
+        <Hero />
+        {genres && (
+          <div className="container">
+            {Object.values(genres).map((genre, i) => (
+              <Section genre={genre.value} key={i} />
+            ))}
+          </div>
+        )}
+      </div>{" "}
       <div
         className="page-end"
         onMouseEnter={() => {

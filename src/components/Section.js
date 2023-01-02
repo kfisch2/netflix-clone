@@ -14,8 +14,8 @@ const Section = ({ genre }) => {
       }
     );
     const responseBody = await response.json();
-    setMovies(responseBody.data.movies_by_genre.values);
-    setPageState(responseBody.data.movies_by_genre.pageState);
+    setMovies(responseBody.data.movies.values);
+    setPageState(responseBody.data.movies.pageState);
   };
 
   useEffect(() => {

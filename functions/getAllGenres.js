@@ -7,7 +7,7 @@ exports.handler = async function (e) {
   const url = process.env.ASTRA_ENDPOINT;
   const query = `
     query getAllGenres {
-      reference_list(value: { title: "genre" },
+      genres(value: { label: "genre" },
       options: { limit: ${JSON.stringify(limit)} }) {
         values {
           value

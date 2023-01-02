@@ -7,7 +7,7 @@ exports.handler = async function (e) {
   const url = process.env.ASTRA_ENDPOINT;
   const query = `
   query getMoviesByGenre {
-    movies_by_genre(value: 
+    movies(value: 
       { genre: ${JSON.stringify(genre)} }, 
       orderBy: [year_DESC], 
       options: { pageSize: 2, pageState: ${JSON.stringify(pageState)} }
