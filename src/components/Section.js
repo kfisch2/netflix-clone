@@ -36,7 +36,7 @@ const Section = ({ genre }) => {
               setPageState(pageState);
               fetchData();
             }}
-          >{">"}
+          ><span>{">"}</span>
           </div>
         </div>
       )}

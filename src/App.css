@@ -10,17 +10,12 @@ body {
   font-family: "Helvetica Neue", sans-serif;
 }
 
-.main-page {
-  display: flex;
-}
 
 .container {
   margin: 0 50px;
 }
 
 .card {
-  width: 500px;
-  height: 280px;
   border-radius: 5px;
   margin: 2px;
   transition: transform 500ms;
@@ -30,39 +25,40 @@ body {
 }
 
 img {
-  width: 100%;
   border-radius: 5px;
+  max-width: 570px;
+  max-height: 239px;
 }
 
 .indicator-icon {
+  height: 239px;
   color: var(--secondary);
-  height: 100%;
   width: 100%;
-  transition: transform .1s ease-out 0s;
+  transition: transform 0.1s ease-out 0s;
   cursor: pointer;
   border-bottom-left-radius: 4px;
   border-top-left-radius: 4px;
-  right: 0
 }
 
-.indicator-icon:hover {
-  background-color: rgba(128, 128, 128, 0.808);
-  z-index: 200;
+.indicator-icon span:hover {
+  background-color: rgba(109, 226, 14, 0.479);
+  height: 239px;
+  font-weight: lighter;
 }
 
 .movie-section {
   display: flex;
   align-items: center;
+  margin-left: 105px;
 }
 
-.movie-section .indicator-icon {
-  width: 100%;
-  height: 100%;
-  font-size: xx-large;
+.indicator-icon {
+  font-size: 75px;
 }
 
 .movie-section:focus-within .card,
-.movie-section:focus, .indicator-icon,
+.movie-section:focus,
+.indicator-icon,
 .card {
   transform: translate(-25%);
   z-index: 1;
@@ -75,7 +71,7 @@ img {
 
 .movie-section .card:focus,
 .movie-section .card:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
   z-index: 1;
 }
 
