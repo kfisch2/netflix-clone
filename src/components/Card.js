@@ -4,9 +4,8 @@ const Card = ({ movie }) => {
       {" "}
       <div className="card">
         <h3>{movie.title}</h3>
-        <h5>({movie.duration} minutes)</h5>
         <div className="image">
-          <video src={movie.thumbnail} type="video/mp4" autoPlay />
+          <img src={movie.thumbnail} alt=""/>
         </div>
       </div>
     </>

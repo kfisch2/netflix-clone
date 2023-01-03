@@ -28,15 +28,16 @@ const Section = ({ genre }) => {
       {movies && (
         <div className="movie-section">
           {movies.map((movie, i) => (
-            <Card key={i} movie={movie}/>
+            <Card key={i} movie={movie} />
           ))}
           <div
-            className="more-button"
+            className="indicator-icon"
             onClick={() => {
-              setPageState(pageState)
-              fetchData()
+              setPageState(pageState);
+              fetchData();
             }}
-          ></div>
+          >{">"}
+          </div>
         </div>
       )}
     </>

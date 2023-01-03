@@ -20,7 +20,7 @@ const App = () => {
     );
     const responseBody = await response.json();
     console.log(responseBody)
-    // setGenres(responseBody.data.genres.values);
+    setGenres(responseBody.data.genres.values);
   };
 
   useEffect(() => {
