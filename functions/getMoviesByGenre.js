@@ -17,7 +17,8 @@ exports.handler = async function (e) {
         synopsis,
         year,
         duration,
-        thumbnail
+        thumbnail, 
+        poster
       }
       pageState
     }
