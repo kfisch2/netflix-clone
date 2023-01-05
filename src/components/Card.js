@@ -3,22 +3,28 @@ import { useState } from "react";
 const Card = ({ movie }) => {
   const [isShown, setIsShown] = useState(false);
 
-  // for transition from movie poster to clip on hover
-  const timer = (number) => {
-    setTimeout(timer);
-  };
+  // timer for transitioning from poster to gif
+  const transition = () => {
+    setTimeout(() => {
+      setIsShown(!false)
+    }, 300)
+  }
+
 
   return (
     <div
       className="card"
       onMouseEnter={() => {
-        setIsShown(true);
+        transition();
+  
       }}
       onMouseLeave={() => {
+        clearTimeout(transition)
         setIsShown(false);
+       
       }}
     >
-      {!isShown && <img src={movie.poster} alt="" />}
+      {!isShown && <img className="poster" src={movie.poster} alt=""/>}
 
       {isShown && (
         <>
