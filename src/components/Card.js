@@ -1,42 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Trailer from "./Trailer.js";
+import Poster from "./Poster.js";
 
 const Card = ({ movie }) => {
-  const [isShown, setIsShown] = useState(false);
-
-  // timer for transitioning from poster to gif
-  const transition = () => {
-    setTimeout(() => {
-      setIsShown(!false)
-    }, 300)
-  }
-
+  const [isShown, setIsShown] = useState(true);
 
   return (
     <div
       className="card"
       onMouseEnter={() => {
-        transition();
-  
+        setIsShown(false)
+        
       }}
       onMouseLeave={() => {
-        clearTimeout(transition)
-        setIsShown(false);
-       
+        setIsShown(true)
       }}
     >
-      {!isShown && <img className="poster" src={movie.poster} alt=""/>}
-
-      {isShown && (
-        <>
-          {" "}
-          <img src={movie.thumbnail} alt="" />
-          <div className="info-box">
-            {movie.title}
-            {movie.duration}
-            {movie.synopsis}
-          </div>
-        </>
-      )}
+      {isShown && <Poster movie={movie} />}
+      {!isShown && <Trailer movie={movie} />}
     </div>
   );
 };
